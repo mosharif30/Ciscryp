@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Logo from "shared/Logo/Logo";
 import MenuBar from "shared/MenuBar/MenuBar";
 import SwitchDarkMode from "shared/SwitchDarkMode/SwitchDarkMode";
@@ -8,8 +8,43 @@ import ButtonSecondary from "shared/Button/ButtonSecondary";
 import Navigation from "shared/Navigation/Navigation";
 
 export interface MainNav2Props {}
+declare global {
+  interface Window{
+    ethereum?:any
+  }
+}
 
 const MainNav2: FC<MainNav2Props> = () => {
+  const [wallet, setWallet] = useState('');
+  
+  useEffect(() => {
+    const getWallet = async () => {
+      if(window.ethereum) {
+        const res = await window.ethereum.request({          
+          method: "eth_requestAccounts",        
+        });        
+        setWallet(res[0])
+      }
+    }
+    getWallet();
+
+  }, []);
+
+  const onConnectWallet = () => {
+    if(!wallet) {
+      if(window?.ethereum){
+        window.ethereum.request({method:'eth_requestAccounts'})
+        .then((res: any)=>{
+          setWallet(res[0])
+        })
+      }else{
+        alert("Install metamask extension!!")
+      }
+    } else {
+      navigator.clipboard.writeText(wallet);
+    }
+  }
+
   return (
     <div className={`nc-MainNav2 relative z-10 ${"onTop "}`}>
       <div className="container py-5 relative flex justify-between items-center space-x-4 xl:space-x-8">
@@ -62,10 +97,11 @@ const MainNav2: FC<MainNav2Props> = () => {
               Create
             </ButtonPrimary>
             <ButtonSecondary
-              href={"/connect-wallet"}
+              // href={"/connect-wallet"}
               sizeClass="px-4 py-2 sm:px-5"
+              onClick={() => onConnectWallet()}
             >
-              Connect Wallet
+              {wallet ? wallet.slice(0, 4)+"..."+wallet.slice(38, 42) : "Connect Wallet"}
             </ButtonSecondary>
           </div>
           <div className="flex items-center space-x-1.5 xl:hidden">
@@ -84,3 +120,4 @@ const MainNav2: FC<MainNav2Props> = () => {
 };
 
 export default MainNav2;
+
