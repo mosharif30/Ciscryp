@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ButtonClose from "shared/ButtonClose/ButtonClose";
 import Logo from "shared/Logo/Logo";
 import { Disclosure } from "@headlessui/react";
@@ -20,6 +20,8 @@ const NavMobile: React.FC<NavMobileProps> = ({
   data = NAVIGATION_DEMO_2,
   onClickClose,
 }) => {
+  const [wallet, setWallet] = useState('');
+  
   const _renderMenuChild = (item: NavItemType) => {
     return (
       <ul className="nav-mobile-sub-menu pl-6 pb-1 text-base">
@@ -116,6 +118,36 @@ const NavMobile: React.FC<NavMobileProps> = ({
     );
   };
 
+  
+
+  useEffect(() => {
+    const getWallet = async () => {
+      if(window.ethereum) {
+        const res = await window.ethereum.request({          
+          method: "eth_requestAccounts",        
+        });
+        setWallet(res[0])
+      }
+    }
+    getWallet();
+
+  }, []);
+
+  const onConnectWallet = () => {
+    if(!wallet) {
+      if(window?.ethereum){
+        window.ethereum.request({method:'eth_requestAccounts'})
+        .then((res: any)=>{
+          setWallet(res[0])
+        })
+      }else{
+        alert("Install metamask extension!!")
+      }
+    } else {
+      navigator.clipboard.writeText(wallet);
+    }
+  }
+
   return (
     <div className="overflow-y-auto w-full max-w-sm h-screen py-2 transition transform shadow-lg ring-1 dark:ring-neutral-700 bg-white dark:bg-neutral-900 divide-y-2 divide-neutral-100 dark:divide-neutral-800">
       <div className="py-6 px-5">
@@ -144,8 +176,8 @@ const NavMobile: React.FC<NavMobileProps> = ({
         <ButtonPrimary href={"/page-upload-item"} className="!px-10">
           Create
         </ButtonPrimary>
-        <ButtonSecondary href={"/connect-wallet"} className="flex-1">
-          Connect Wallet
+        <ButtonSecondary className="flex-1" onClick={() => onConnectWallet()}>
+          {wallet ? wallet.slice(0, 5)+"..."+wallet.slice(38, 42) : "Connect Wallet"}
         </ButtonSecondary>
       </div>
     </div>
