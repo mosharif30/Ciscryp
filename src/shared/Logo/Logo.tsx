@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoImg from "images/logo.svg";
+import Hearverse from "../../images/Hearverse.png";
 import logoLightImg from "images/logo-light.svg";
 
 export interface LogoProps {
@@ -10,7 +10,7 @@ export interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({
-  img = logoImg,
+  img = Hearverse,
   imgLight = logoLightImg,
   className = "",
 }) => {

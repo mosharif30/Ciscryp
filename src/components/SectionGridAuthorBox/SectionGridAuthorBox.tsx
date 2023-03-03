@@ -84,12 +84,15 @@ const SectionGridAuthorBox: FC<SectionGridAuthorBoxProps> = ({
       <div>
         <Heading
           className="mb-12 lg:mb-14 text-neutral-900 dark:text-neutral-50"
-          fontClass="text-3xl md:text-4xl 2xl:text-5xl font-semibold"
+          fontClass="text-3xl md:text-4xl 2xl:text-4xl font-bold"
           isCenter
           desc=""
         >
-          Top List Creators.
+          Verified Musicians and Labels Profiles
         </Heading>
+        <div className="mb-16 flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-5">
+          <ButtonPrimary>Request Creator access</ButtonPrimary>
+        </div>
         <Nav
           className="p-1 bg-white dark:bg-neutral-800 rounded-full shadow-lg"
           containerClassName="mb-12 lg:mb-14 relative flex justify-center w-full text-sm md:text-base"

@@ -20,7 +20,7 @@ const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
       data-nc-id="PageAbout"
     >
       <Helmet>
-        <title>About || Ciscryp React Template</title>
+        <title>About || Hearverse</title>
       </Helmet>
 
       {/* ======== BG GLASS ======== */}
@@ -31,7 +31,7 @@ const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
           rightImg={rightImg}
           heading="👋 About Us."
           btnText=""
-          subHeading="We’re impartial and independent, and every day we create distinctive, world-class programmes and content which inform, educate and entertain millions of people in the around the world."
+          subHeading="The Protocol, Platform, and Ecosystem for the On-chain Music industry that will launch its own HVR Blockchain to create a new stream model revenues in Music. With HearVerse, Ecosystem we created a decentralized financial structure to collect the best catalogs and invest in them by DAO. Additionally, we created a solution-based new ecosystem consisting of Metaverse DAO, NFT2.0 Music, Web3 Music Tools, and Music royalty funds to help successful artists. "
         />
 
         <SectionFounder />

@@ -108,7 +108,7 @@ const Heading: React.FC<HeadingProps> = ({
       <div
         className={
           isCenter
-            ? "flex flex-col items-center text-center w-full max-w-2xl mx-auto"
+            ? "flex flex-col items-center text-center w-full max-w-3xl mx-auto"
             : "max-w-2xl"
         }
       >

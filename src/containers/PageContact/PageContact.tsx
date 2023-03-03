@@ -14,17 +14,17 @@ export interface PageContactProps {
 }
 
 const info = [
-  {
-    title: "🗺 ADDRESS",
-    desc: "Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter",
-  },
+  // {
+  //   title: "🗺 ADDRESS",
+  //   desc: "Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter",
+  // },
   {
     title: "💌 EMAIL",
-    desc: "nc.example@example.com",
+    desc: "HearverseFund@gmail.com",
   },
   {
     title: "☎ PHONE",
-    desc: "000-123-456-7890",
+    desc: "+1-715-544-5498",
   },
 ];
 
@@ -35,7 +35,7 @@ const PageContact: FC<PageContactProps> = ({ className = "" }) => {
       data-nc-id="PageContact"
     >
       <Helmet>
-        <title>Contact || NFT React Template</title>
+        <title>Contact || Hearverse</title>
       </Helmet>
       <div className="mb-24 lg:mb-32">
         <h2 className="my-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">

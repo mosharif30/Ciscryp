@@ -34,35 +34,35 @@ const plans = [
 ];
 const PageConnectWallet: FC<PageConnectWalletProps> = ({ className = "" }) => {
   const [showModal, setShowModal] = useState(false);
-  const [wallet, setWallet] = useState('');
+  const [wallet, setWallet] = useState("");
 
   useEffect(() => {
     const getWallet = async () => {
-      if(window.ethereum) {
-        const res = await window.ethereum.request({          
-          method: "eth_requestAccounts",        
+      if (window.ethereum) {
+        const res = await window.ethereum.request({
+          method: "eth_requestAccounts",
         });
-        setWallet(res[0])
+        setWallet(res[0]);
       }
-    }
+    };
     getWallet();
-
   }, []);
 
   const onConnectWallet = () => {
-    if(!wallet) {
-      if(window?.ethereum){
-        window.ethereum.request({method:'eth_requestAccounts'})
-        .then((res: any)=>{
-          setWallet(res[0])
-        })
-      }else{
-        alert("Install metamask extension!!")
+    if (!wallet) {
+      if (window?.ethereum) {
+        window.ethereum
+          .request({ method: "eth_requestAccounts" })
+          .then((res: any) => {
+            setWallet(res[0]);
+          });
+      } else {
+        alert("Install metamask extension!!");
       }
     } else {
       navigator.clipboard.writeText(wallet);
     }
-  }
+  };
 
   const renderContent = () => {
     return (
@@ -92,27 +92,24 @@ const PageConnectWallet: FC<PageConnectWalletProps> = ({ className = "" }) => {
       data-nc-id="PageConnectWallet"
     >
       <Helmet>
-        <title>Connect Wallet || NFT React Template</title>
+        <title>Connect Wallet || Hearverse</title>
       </Helmet>
       <div className="container">
-        {
-          wallet ?
+        {wallet ? (
           <div className="my-12 sm:lg:my-16 lg:my-24 max-w-3xl mx-auto space-y-8 sm:space-y-10">
             <div className="max-w-2xl">
-              <h2 className="text-3xl sm:text-4xl font-semibold">
-              {wallet}
-              </h2>
+              <h2 className="text-3xl sm:text-4xl font-semibold">{wallet}</h2>
             </div>
           </div>
-          :
+        ) : (
           <div className="my-12 sm:lg:my-16 lg:my-24 max-w-3xl mx-auto space-y-8 sm:space-y-10">
             <div className="max-w-2xl">
               <h2 className="text-3xl sm:text-4xl font-semibold">
                 Connect your wallet.
               </h2>
               <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
-                Connect with one of our available wallet providers or create a new
-                one.
+                Connect with one of our available wallet providers or create a
+                new one.
               </span>
             </div>
             <div className="w-full border-b-2 border-neutral-100 dark:border-neutral-700"></div>
@@ -171,7 +168,7 @@ const PageConnectWallet: FC<PageConnectWalletProps> = ({ className = "" }) => {
               </div>
             </div>
           </div>
-        }
+        )}
       </div>
 
       <NcModal

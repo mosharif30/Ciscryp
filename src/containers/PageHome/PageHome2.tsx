@@ -5,7 +5,7 @@ import BackgroundSection from "components/BackgroundSection/BackgroundSection";
 import BgGlassmorphism from "components/BgGlassmorphism/BgGlassmorphism";
 import SectionGridAuthorBox from "components/SectionGridAuthorBox/SectionGridAuthorBox";
 import SectionBecomeAnAuthor from "components/SectionBecomeAnAuthor/SectionBecomeAnAuthor";
-import SectionVideos from "./SectionVideos";
+// import SectionVideos from "./SectionVideos";
 import { Helmet } from "react-helmet";
 import SectionLargeSlider from "./SectionLargeSlider";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
@@ -19,7 +19,7 @@ function PageHome() {
   return (
     <div className="nc-PageHome relative overflow-hidden">
       <Helmet>
-        <title>Ciscryp || NFT Marketplace Template</title>
+        <title>Hearverse || NFT Marketplace</title>
       </Helmet>
       {/* GLASSMOPHIN */}
       <BgGlassmorphism />
@@ -81,7 +81,7 @@ function PageHome() {
         </div>
 
         {/* SECTION */}
-        <SectionVideos />
+        {/* <SectionVideos /> */}
       </div>
     </div>
   );

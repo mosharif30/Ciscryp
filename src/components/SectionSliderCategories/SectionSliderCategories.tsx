@@ -12,11 +12,11 @@ export interface SectionSliderCategoriesProps {
 }
 
 const ntfsCatNames = [
-  "Arts",
-  "Entertainment",
   "Music",
-  "News",
-  "Science",
+  "Podcasts",
+  "Initial Music Offering",
+  "Metaverse Assets",
+  "Customized Merch Items",
   "Sports",
   "Technology",
 ];
