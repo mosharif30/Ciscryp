@@ -11,8 +11,8 @@ import SectionLargeSlider from "./SectionLargeSlider";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import SectionHero2 from "components/SectionHero/SectionHero2";
 import SectionGridFeatureNFT2 from "./SectionGridFeatureNFT2";
-import SectionMagazine8 from "components/SectionMagazine8";
-import SectionSliderCardNftVideo from "components/SectionSliderCardNftVideo";
+// import SectionMagazine8 from "components/SectionMagazine8";
+// import SectionSliderCardNftVideo from "components/SectionSliderCardNftVideo";
 import SectionSliderCollections2 from "components/SectionSliderCollections2";
 
 function PageHome() {
@@ -41,7 +41,7 @@ function PageHome() {
 
       <div className="container relative space-y-24 my-24 lg:space-y-32 lg:my-32">
         {/* SECTION 3 */}
-        <SectionMagazine8 />
+        {/* <SectionMagazine8 /> */}
 
         {/* SECTION */}
         <div className="relative py-20 lg:py-28">
@@ -54,7 +54,7 @@ function PageHome() {
         </div>
 
         {/* SECTION 4 */}
-        <SectionSliderCardNftVideo />
+        {/* <SectionSliderCardNftVideo /> */}
 
         {/* SECTION */}
         <div className="relative py-20 lg:py-28">

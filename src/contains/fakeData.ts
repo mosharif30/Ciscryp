@@ -34,8 +34,8 @@ import nftsF from "images/nfts/F.jpg";
 import nftsG from "images/nfts/G.jpg";
 // import nftsLarge1 from "images/nfts/large1.png";
 import nftsLarge1 from "images/nfts/large1.jpg";
-import nftsLarge2 from "images/nfts/large2.png";
-import nftsLarge3 from "images/nfts/large3.png";
+import nftsLarge2 from "images/nfts/large2.jpg";
+import nftsLarge3 from "images/nfts/large3.jpg";
 //
 import nftsCat1 from "images/nfts/cat1.png";
 import nftsCat2 from "images/nfts/cat2.png";
