@@ -9,23 +9,31 @@ import avatar8 from "images/avatars/Image-8.png";
 import avatar9 from "images/avatars/Image-9.png";
 import avatar10 from "images/avatars/Image-10.png";
 //
-import nfts1 from "images/nfts/1.png";
-import nfts2 from "images/nfts/2.png";
-import nfts3 from "images/nfts/3.png";
-import nfts4 from "images/nfts/4.png";
-import nfts5 from "images/nfts/5.png";
-import nfts6 from "images/nfts/6.png";
-import nfts7 from "images/nfts/7.png";
-import nfts8 from "images/nfts/8.png";
-import nfts9 from "images/nfts/9.png";
-import nfts10 from "images/nfts/10.png";
-import nfts11 from "images/nfts/11.png";
-import nfts12 from "images/nfts/12.png";
-import nfts13 from "images/nfts/13.png";
-import nfts14 from "images/nfts/14.png";
-import nfts15 from "images/nfts/15.png";
-import nfts16 from "images/nfts/16.png";
-import nftsLarge1 from "images/nfts/large1.png";
+// import nfts1 from "images/nfts/1.png";
+// import nfts2 from "images/nfts/2.png";
+// import nfts3 from "images/nfts/3.png";
+// import nfts4 from "images/nfts/4.png";
+// import nfts5 from "images/nfts/5.png";
+// import nfts6 from "images/nfts/6.png";
+// import nfts7 from "images/nfts/7.png";
+// import nfts8 from "images/nfts/8.png";
+// import nfts9 from "images/nfts/9.png";
+// import nfts10 from "images/nfts/10.png";
+// import nfts11 from "images/nfts/11.png";
+// import nfts12 from "images/nfts/12.png";
+// import nfts13 from "images/nfts/13.png";
+// import nfts14 from "images/nfts/14.png";
+// import nfts15 from "images/nfts/15.png";
+// import nfts16 from "images/nfts/16.png";
+import nftsA from "images/nfts/A.jpg";
+import nftsB from "images/nfts/B.jpg";
+import nftsC from "images/nfts/C.jpg";
+import nftsD from "images/nfts/D.jpg";
+import nftsE from "images/nfts/E.jpg";
+import nftsF from "images/nfts/F.jpg";
+import nftsG from "images/nfts/G.jpg";
+// import nftsLarge1 from "images/nfts/large1.png";
+import nftsLarge1 from "images/nfts/large1.jpg";
 import nftsLarge2 from "images/nfts/large2.png";
 import nftsLarge3 from "images/nfts/large3.png";
 //
@@ -46,22 +54,29 @@ export const nftsCatImgs = [
 ];
 export const nftsLargeImgs = [nftsLarge1, nftsLarge2, nftsLarge3];
 export const nftsImgs = [
-  nfts1,
-  nfts2,
-  nfts3,
-  nfts4,
-  nfts5,
-  nfts6,
-  nfts7,
-  nfts8,
-  nfts9,
-  nfts10,
-  nfts11,
-  nfts12,
-  nfts13,
-  nfts14,
-  nfts15,
-  nfts16,
+  // nfts1,
+  // nfts2,
+  // nfts3,
+  // nfts4,
+  // nfts5,
+  // nfts6,
+  // nfts7,
+  // nfts8,
+  // nfts9,
+  // nfts10,
+  // nfts11,
+  // nfts12,
+  // nfts13,
+  // nfts14,
+  // nfts15,
+  // nfts16,
+  nftsA,
+  nftsB,
+  nftsC,
+  nftsD,
+  nftsE,
+  nftsF,
+  nftsG,
 ];
 
 export const nftsAbstracts = [

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import imagePng from "images/hero-right-3.png";
+import imagePng from "images/heroheader.jpg";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
 import HeroSearchForm from "components/HeroSearchForm/HeroSearchForm";
 
