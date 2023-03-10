@@ -51,6 +51,9 @@ export const nftsCatImgs = [
   nftsCat6,
   nftsCat2,
   nftsCat5,
+  nftsCat1,
+  nftsCat1,
+  nftsCat1,
 ];
 export const nftsLargeImgs = [nftsLarge1, nftsLarge2, nftsLarge3];
 export const nftsImgs = [

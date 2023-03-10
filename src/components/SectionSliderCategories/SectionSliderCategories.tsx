@@ -17,8 +17,10 @@ const ntfsCatNames = [
   "Initial Music Offering",
   "Metaverse Assets",
   "Customized Merch Items",
-  "Sports",
-  "Technology",
+  "Community NFTs",
+  "Song Stems ",
+  "AI-Generated",
+  "Early Beta Access",
 ];
 
 const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
@@ -77,7 +79,7 @@ const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
         </Heading>
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
-            {[1, 1, 1, 1, 1, 1].map((item, index) => (
+            {[1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, index) => (
               <li key={index} className={`glide__slide ${itemClassName}`}>
                 <CardCategory5
                   index={index}

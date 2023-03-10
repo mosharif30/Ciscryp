@@ -5,6 +5,8 @@ import BackgroundSection from "components/BackgroundSection/BackgroundSection";
 import BgGlassmorphism from "components/BgGlassmorphism/BgGlassmorphism";
 import SectionGridAuthorBox from "components/SectionGridAuthorBox/SectionGridAuthorBox";
 import SectionBecomeAnAuthor from "components/SectionBecomeAnAuthor/SectionBecomeAnAuthor";
+import SectionInvest from "components/SectionInvest/SectionInvest";
+
 // import SectionVideos from "./SectionVideos";
 import { Helmet } from "react-helmet";
 import SectionLargeSlider from "./SectionLargeSlider";
@@ -14,6 +16,9 @@ import SectionGridFeatureNFT2 from "./SectionGridFeatureNFT2";
 // import SectionMagazine8 from "components/SectionMagazine8";
 // import SectionSliderCardNftVideo from "components/SectionSliderCardNftVideo";
 import SectionSliderCollections2 from "components/SectionSliderCollections2";
+import SectionWhy from "components/SectionWhy/SectionWhy";
+import SectionCreators from "components/SectionCreators/SectionCreators";
+import SectionFans from "components/SectionFans/SectionFans";
 
 function PageHome() {
   return (
@@ -45,7 +50,7 @@ function PageHome() {
 
         {/* SECTION */}
         <div className="relative py-20 lg:py-28">
-          <BackgroundSection />
+          {/* <BackgroundSection /> */}
           <SectionGridAuthorBox
             sectionStyle="style2"
             data={Array.from("11111111")}
@@ -78,6 +83,20 @@ function PageHome() {
         <div className="relative py-20 lg:py-24">
           <BackgroundSection />
           <SectionBecomeAnAuthor />
+        </div>
+        <div className="relative py-20 lg:py-24">
+          <SectionInvest />
+        </div>
+        <div className="relative py-20 lg:py-24">
+          <BackgroundSection />
+          <SectionWhy />
+        </div>
+        <div className="relative py-20 lg:py-24">
+          <SectionCreators />
+        </div>
+        <div className="relative py-20 lg:py-24">
+          <BackgroundSection />
+          <SectionFans />
         </div>
 
         {/* SECTION */}
