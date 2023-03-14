@@ -75,7 +75,7 @@ const ModalReportItem: FC<ModalReportItemProps> = ({
                 className={({ checked }) => {
                   return `${
                     checked
-                      ? "bg-primary-6000 text-white dark:bg-primary-700"
+                      ? "bg-hearverse-200 text-white dark:bg-primary-700"
                       : "bg-white dark:bg-black/20 border-t dark:border-0 border-neutral-50 "
                   } relative shadow-lg rounded-lg px-3 py-3 cursor-pointer flex sm:px-5 sm:py-4 focus:outline-none `;
                 }}

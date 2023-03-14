@@ -172,7 +172,7 @@ const PageUploadItem: FC<PageUploadItemProps> = ({ className = "" }) => {
                         }
                   ${
                     checked
-                      ? "bg-teal-600 text-white"
+                      ? "bg-hearverse-100 text-white"
                       : "hover:bg-neutral-100 dark:hover:bg-neutral-800"
                   }
                     relative flex-shrink-0 w-44 rounded-xl border border-neutral-200 dark:border-neutral-700 px-6 py-5 cursor-pointer flex focus:outline-none `

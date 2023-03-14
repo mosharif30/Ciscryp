@@ -76,7 +76,7 @@ const TabFilters = () => {
   // OK
   const renderXClear = () => {
     return (
-      <span className="flex-shrink-0 w-4 h-4 rounded-full bg-primary-500 text-white flex items-center justify-center ml-3 cursor-pointer">
+      <span className="flex-shrink-0 w-4 h-4 rounded-full bg-hearverse-200 text-white flex items-center justify-center ml-3 cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-3 w-3"

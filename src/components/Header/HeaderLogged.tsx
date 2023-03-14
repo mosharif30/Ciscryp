@@ -5,7 +5,7 @@ export interface HeaderLoggedProps {}
 
 const HeaderLogged: FC<HeaderLoggedProps> = () => {
   return (
-    <div className="nc-HeaderLogged relative w-full z-40 ">
+    <div className="nc-HeaderLogged sticky top-0 w-full z-40 bg-white">
       {/* NAV */}
       <MainNav2Logged />
     </div>

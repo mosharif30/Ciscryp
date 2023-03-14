@@ -32,6 +32,12 @@ module.exports = {
 
     extend: {
       colors: {
+        hearverse: {
+          50: "#fae1ff",
+          100: "#cc95f2",
+          200: "#6f3cd3",
+          300: "#5e46aa",
+        },
         primary: {
           50: customColors("--c-primary-50"),
           100: customColors("--c-primary-100"),

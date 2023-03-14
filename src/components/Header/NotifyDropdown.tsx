@@ -35,7 +35,7 @@ export default function NotifyDropdown() {
                  group  p-3 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-full inline-flex items-center text-base font-medium hover:text-opacity-100
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 relative`}
             >
-              <span className="w-2 h-2 bg-blue-500 absolute top-2 right-2 rounded-full"></span>
+              <span className="w-2 h-2 bg-hearverse-200 absolute top-2 right-2 rounded-full"></span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M12 6.43994V9.76994"
@@ -90,7 +90,7 @@ export default function NotifyDropdown() {
                             {item.time}
                           </p>
                         </div>
-                        <span className="absolute right-1 top-1/2 transform -translate-y-1/2 w-2 h-2 rounded-full bg-blue-500"></span>
+                        <span className="absolute right-1 top-1/2 transform -translate-y-1/2 w-2 h-2 rounded-full bg-hearverse-200"></span>
                       </a>
                     ))}
                   </div>
