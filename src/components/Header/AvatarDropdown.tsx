@@ -3,8 +3,15 @@ import { avatarImgs } from "contains/fakeData";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "shared/Avatar/Avatar";
+import { logout } from "redux/authSlice";
+import { useDispatch } from "react-redux";
 
 export default function AvatarDropdown() {
+  const dispatch = useDispatch();
+
+  const handleDisconnect = () => {
+    dispatch(logout());
+  };
   return (
     <div className="AvatarDropdown">
       <Popover className="relative">
@@ -231,6 +238,7 @@ export default function AvatarDropdown() {
 
                     {/* ------------------ 2 --------------------- */}
                     <Link
+                      onClick={handleDisconnect}
                       to={"/"}
                       className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                     >

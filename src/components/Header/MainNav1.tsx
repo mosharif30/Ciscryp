@@ -13,7 +13,7 @@ export interface MainNav1Props {
 const MainNav1: FC<MainNav1Props> = ({ isTop }) => {
   return (
     <div
-      className={`nc-MainNav1 relative z-10 ${
+      className={`nc-MainNav1 bg-white dark:bg-neutral-900 z-10 sticky top-0 ${
         isTop ? "onTop " : "notOnTop backdrop-filter"
       }`}
     >

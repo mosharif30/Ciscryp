@@ -1,12 +1,18 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import HeaderLogged from "components/Header/HeaderLogged";
-import Header2 from "components/Header/Header2";
+import MainNav1 from "components/Header/MainNav1";
+import { useSelector } from "react-redux";
 
 const SiteHeader = () => {
-  let location = useLocation();
+  const isLoggedIn = useSelector(
+    (state: { auth: { isLoggedIn: string } }) => state.auth.isLoggedIn
+  );
 
-  return location.pathname === "/home2" ? <Header2 /> : <HeaderLogged />;
+  if (isLoggedIn) {
+    return <HeaderLogged />;
+  } else {
+    return <MainNav1 isTop={true} />;
+  }
 };
 
 export default SiteHeader;

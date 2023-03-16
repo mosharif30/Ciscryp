@@ -1,16 +1,30 @@
 import Label from "components/Label/Label";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import Avatar from "shared/Avatar/Avatar";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
 import Input from "shared/Input/Input";
 import Textarea from "shared/Textarea/Textarea";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export interface AccountPageProps {
   className?: string;
 }
 
 const AccountPage: FC<AccountPageProps> = ({ className = "" }) => {
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(
+    (state: { auth: { isLoggedIn: string } }) => state.auth.isLoggedIn
+  );
+  useEffect(() => {
+    console.log("isLoggedIn", isLoggedIn);
+    if (!isLoggedIn) {
+      console.log("isLoggedIn", isLoggedIn);
+      navigate("/login");
+    }
+  }, [isLoggedIn]);
+
   return (
     <div className={`nc-AccountPage ${className}`} data-nc-id="AccountPage">
       <Helmet>
