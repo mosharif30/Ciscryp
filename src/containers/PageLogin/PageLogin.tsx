@@ -1,11 +1,10 @@
-import React, { FC, useState } from "react";
-
+import React, { FC, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Input from "shared/Input/Input";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
 import axios from "axios";
 import { loginSuccess, loginFailure } from "redux/authSlice";
@@ -17,7 +16,6 @@ interface LoginFormInputs {
   email: string;
   password: string;
 }
-
 
 const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
   const schema = yup.object().shape({
@@ -31,6 +29,8 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [error, setError] = useState("");
   const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
   const methods = useForm<LoginFormInputs>({
     resolver: yupResolver(schema),
   });
@@ -39,7 +39,15 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
     handleSubmit,
     formState: { errors },
   } = methods;
+  const isLoggedIn = useSelector(
+    (state: { auth: { isLoggedIn: string } }) => state.auth.isLoggedIn
+  );
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/account");
+    }
+  }, [isLoggedIn, navigate]);
   const onSubmit = async (data: LoginFormInputs) => {
     setIsLoading(true);
     try {
@@ -50,7 +58,12 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
       if (response.data.success === true) {
         setIsLoading(false);
 
-        dispatch(loginSuccess("dd"));
+        dispatch(loginSuccess(response.data.userId));
+        navigate("/account");
+      } else {
+        setIsLoading(false);
+        dispatch(loginFailure());
+        setError(response.data.error);
       }
     } catch (error) {
       let errorMessage = "Failed to do something exceptional";
@@ -73,11 +86,18 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
         <h2 className="my-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
           Login
         </h2>
-        <h2 className="my-20 flex items-center text-lg leading-[115%] md:text-2xl md:leading-[115%] font-semibold text-red-500 dark:text-neutral-100 justify-center">
-          {error}
-        </h2>
+
+        {location.state?.message && (
+          <h2 className="my-20 flex items-center text-lg leading-[115%] md:text-2xl md:leading-[115%] font-semibold text-green-500 dark:text-green-500 justify-center">
+            {location.state?.message}
+          </h2>
+        )}
+        {error && (
+          <h2 className="my-20 flex items-center text-lg leading-[115%] md:text-2xl md:leading-[115%] font-semibold text-red-500 dark:text-red-500 justify-center">
+            {error}
+          </h2>
+        )}
         <div className="max-w-md mx-auto space-y-6">
-       
           <form
             className="grid grid-cols-1 gap-6"
             onSubmit={handleSubmit(onSubmit)}

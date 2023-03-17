@@ -18,12 +18,12 @@ const AccountPage: FC<AccountPageProps> = ({ className = "" }) => {
     (state: { auth: { isLoggedIn: string } }) => state.auth.isLoggedIn
   );
   useEffect(() => {
-    console.log("isLoggedIn", isLoggedIn);
+   
     if (!isLoggedIn) {
-      console.log("isLoggedIn", isLoggedIn);
+      
       navigate("/login");
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, navigate]);
 
   return (
     <div className={`nc-AccountPage ${className}`} data-nc-id="AccountPage">

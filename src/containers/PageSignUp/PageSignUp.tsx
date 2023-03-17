@@ -1,17 +1,17 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import { Helmet } from "react-helmet";
 import Input from "shared/Input/Input";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import axios from "axios";
-import { loginSuccess, loginFailure } from "redux/authSlice";
+
 export interface PageSignUpProps {
   className?: string;
 }
@@ -38,7 +38,8 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
   });
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [error, setError] = useState("");
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const methods = useForm<RegisterFormInputs>({
     resolver: yupResolver(schema),
   });
@@ -53,18 +54,24 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
       email: data.email,
       password: data.password,
     };
-    console.log(newData);
 
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://3.144.250.121:3001/login",
+        "http://3.144.250.121:3001/register",
         newData
       );
+
       if (response.data.success === true) {
         setIsLoading(false);
-
-        dispatch(loginSuccess("dd"));
+        navigate("/login", {
+          state: {
+            message: "sign up was successful , please login to your account",
+          },
+        });
+      } else {
+        setIsLoading(false);
+        setError(response.data.error);
       }
     } catch (error) {
       let errorMessage = "Failed to do something exceptional";
@@ -75,9 +82,17 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
       setError(errorMessage);
 
       setIsLoading(false);
-      dispatch(loginFailure());
     }
   };
+  const isLoggedIn = useSelector(
+    (state: { auth: { isLoggedIn: string } }) => state.auth.isLoggedIn
+  );
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/account");
+    }
+  }, [isLoggedIn, navigate]);
   return (
     <div className={`nc-PageSignUp  ${className}`} data-nc-id="PageSignUp">
       <Helmet>
@@ -87,7 +102,7 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
         <h2 className="my-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
           Signup
         </h2>
-        <h2 className="my-20 flex items-center text-lg leading-[115%] md:text-2xl md:leading-[115%] font-semibold text-red-500 dark:text-neutral-100 justify-center">
+        <h2 className="my-20 flex items-center text-lg leading-[115%] md:text-2xl md:leading-[115%] font-semibold text-red-500 dark:text-red-500 justify-center">
           {error}
         </h2>
         <div className="max-w-md mx-auto space-y-6 ">
